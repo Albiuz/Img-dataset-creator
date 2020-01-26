@@ -1,0 +1,5 @@
+# ignore all images saved in uploads
+project/uploads/
+
+# ignore the database file
+project/db.sqlite
