@@ -1,0 +1,47 @@
+<!-- templates/img_bbox.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-3" id="canvas-container" style="background-image: url({{ url_for('main.storage', file=img) }})">
+</div>
+
+<div class="main-body">
+  <ul class="list-group" id="buttons-list">
+
+  </ul>
+</div>
+
+<div class="setting-body dropdown d-none">
+  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="dropdown-classes">
+
+  </div>
+</div>
+<div class="bbox-body">
+  <div class="navbar navbar-light bg-light fixed-bottom d-flex justify-content-center" id="btn-footer">
+    <div class="main-body">
+      <button type="button" class="btn btn-danger btn-lg" id="delimg-btn">del</button>
+      <button type="button" class="btn btn-primary btn-lg" id="newbbox-btn">add</button>
+      <button type="button" class="btn btn-success btn-lg" id="next-btn">next</button>
+    </div>
+    <div class="setting-body d-none">
+      <button type="button" class="btn btn-danger btn-lg" id="delbbox-btn-s">del</button>
+      <button type="button" class="btn btn-primary btn-lg" id="newbbox-btn-s">add</button>
+      <button type="button" class="btn btn-success btn-lg" id="savebbox-btn-s">done</button>
+    </div>
+  </div>
+</div>
+
+<div id="demo">
+</div>
+
+<script type="text/javascript">
+  var json_obj = JSON.parse('{{ json_dict | tojson | safe }}');
+  var filename = '{{ img }}';
+</script>
+<script src="{{ url_for('static', filename='js/img_bbox.js') }}" type="text/javascript"></script>
+{% endblock %}

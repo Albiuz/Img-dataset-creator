@@ -1,0 +1,32 @@
+<!-- templates/img_captured.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <form action="" method="post" enctype="multipart/form-data">
+    <div class="row text-center text-lg-left" id="img-container">
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <label for="upload-img" class="d-block mb-4 h-100">
+          <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='img/add_blue.png')}}" alt="">
+        </label>
+        <input type="file" name="img" id="upload-img" acept="image/*" value="" multiple />
+      </div>
+
+    </div>
+    <div class="navbar navbar-light bg-light fixed-bottom d-flex justify-content-center">
+      <button type="button" id="save-btn" class="btn btn-danger btn-lg">SAVE</button>
+    </div>
+  </form>
+</div>
+
+<div id="overlay">
+  <div class="cv-spinner">
+    <span class="spinner"></span>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/upload.js') }}" type="text/javascript"></script>
+
+{% endblock %}
